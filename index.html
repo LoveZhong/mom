@@ -28,35 +28,33 @@
     <style type="text/tailwindcss">
         @layer utilities {
             .text-shadow {
-                    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-                }
-
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            }
+            
             .animate-float {
-                    animation: float 6s ease-in-out infinite;
-                }
-
+                animation: float 6s ease-in-out infinite;
+            }
+            
             .animate-appear {
-                    animation: appear 1.5s ease-out forwards;
-                }
-
+                animation: appear 1.5s ease-out forwards;
+            }
+            
             .animate-fade-in {
-                    animation: fadeIn 2s ease-in forwards;
-                }
-
+                animation: fadeIn 2s ease-in forwards;
+            }
+            
             .card-shadow {
-                    box-shadow: 0 10px 25px -5px rgba(255, 133, 162, 0.1), 0 8px 10px -6px rgba(255, 133, 162, 0.1);
-                }
+                box-shadow: 0 10px 25px -5px rgba(255, 133, 162, 0.1), 0 8px 10px -6px rgba(255, 133, 162, 0.1);
+            }
         }
 
         @keyframes float {
             0% {
                 transform: translateY(0px);
             }
-
             50% {
                 transform: translateY(-20px);
             }
-
             100% {
                 transform: translateY(0px);
             }
@@ -67,7 +65,6 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -78,14 +75,13 @@
             from {
                 opacity: 0;
             }
-
             to {
                 opacity: 1;
             }
         }
 
         /* 新增样式 */
-       .photo-modal {
+        .photo-modal {
             display: none;
             position: fixed;
             z-index: 100;
@@ -97,7 +93,7 @@
             background-color: black;
         }
 
-       .photo-modal img {
+        .photo-modal img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -109,11 +105,11 @@
             transition: opacity 0.5s ease-in-out;
         }
 
-       .photo-modal img.active {
+        .photo-modal img.active {
             opacity: 1;
         }
 
-       .close-button {
+        .close-button {
             color: white;
             position: absolute;
             top: 10px;
@@ -124,7 +120,7 @@
             z-index: 101;
         }
 
-       .return-button {
+        .return-button {
             position: absolute;
             bottom: 40px;
             left: 50%;
@@ -141,25 +137,37 @@
             transition: opacity 0.5s ease;
         }
 
-       .greeting-text {
+        .greeting-text {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             color: white;
-            font-size: 48px; /* 增大字体 */
             text-align: center;
-            text-shadow: 0 0 20px rgba(0, 0, 0, 0.8); /* 增强文字阴影效果 */
+            text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
             z-index: 101;
             opacity: 0;
             transition: opacity 0.5s ease;
-            width: 80%; /* 限制宽度，防止过长 */
-            font-weight: bold; /* 加粗字体 */
-            line-height: 1.2; /* 调整行高，使文字更美观 */
+            width: 80%;
+            font-weight: bold;
+            line-height: 1.2;
         }
 
-       .return-button.show,
-       .greeting-text.show {
+        /* 响应式字体大小 */
+        @media (max-width: 640px) {
+            .greeting-text {
+                font-size: clamp(2rem, 8vw, 3rem);
+            }
+        }
+
+        @media (min-width: 641px) {
+            .greeting-text {
+                font-size: clamp(2.5rem, 5vw, 4rem);
+            }
+        }
+
+        .return-button.show,
+        .greeting-text.show {
             opacity: 1;
         }
     </style>
